@@ -1,0 +1,72 @@
+<!-- <section>
+  <div class="container">
+    <div class="row g-3">
+      <div class="col-12 text-center">
+        <h1 class="mb-5">Are You Looking For</h1>
+      </div>
+      <div class="col-md-6">
+        <a class="my-card" (click)="usedOrNew('used')">
+          <h1>Used Products</h1>
+        </a>
+      </div>
+      <div class="col-md-6">
+        <a class="my-card" (click)="usedOrNew('new')">
+          <h1>New Products</h1>
+        </a>
+      </div>
+    </div>
+  </div>
+</section> -->
+<section class="container-fluid">
+  <div class="row my-row">
+    <div
+      class="p-4 text-white col-lg-6 my-col bg-darker d-flex align-items-center justify-content-center"
+    >
+      <div>
+        <h1 class="fw-bold">SUPPLERA</h1>
+        <p>
+          “Explore <span class="text-main">SUPPLERA</span> for a wide range of
+          essential college supplies!”
+        </p>
+      </div>
+    </div>
+    <div class="col-lg-3 my-col">
+      <div class="used-bg"></div>
+      <div class="used-content">
+        <div class="p-4">
+          <h3 class="h5">Looking For Used Products ?</h3>
+          <p class="text-muted">
+            Explore <span class="text-main">SUPPLERA</span> for gently-used
+            college essentials
+          </p>
+          <div class="layer">
+            <a
+              class="btn bg-main text-white shadow-sm"
+              (click)="usedOrNew('used')"
+              >Explore used products</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-3 my-col">
+      <div class="new-content">
+        <div class="p-4">
+          <h3 class="h5">Looking For New Products ?</h3>
+          <p class="text-muted">
+            Discover a diverse selection of high-quality college essentials at
+            <span class="text-main">SUPPLERA</span>
+          </p>
+          <div class="layer">
+            <a
+              class="btn bg-main text-white shadow-sm"
+              (click)="usedOrNew('new')"
+              >Explore new products</a
+            >
+          </div>
+        </div>
+      </div>
+      <div class="new-bg"></div>
+    </div>
+  </div>
+</section>

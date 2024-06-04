@@ -1,0 +1,119 @@
+<section class="my-5" *ngIf="product.name">
+  <div class="container">
+    <div class="row g-3 justify-content-between align-items-center">
+      <div class="col-lg-5">
+        <div class="p-5 product-images border rounded-5">
+          <img
+            [src]="productImages[currentImage]"
+            [alt]="product.name"
+            class="main-image"
+          />
+          <div class="row g-2 slider border-top">
+            <div
+              class="col-3"
+              *ngFor="let image of productImages; index as index"
+            >
+              <div class="img-wrapper">
+                <img
+                  (click)="displayImage(index)"
+                  [src]="image"
+                  [alt]="product.name"
+                  class="w-100 img-thumbnail rounded-4 p-3 curser-pointer"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div>
+          <h1 class="h4 fw-bolder">
+            {{ product.name }}
+          </h1>
+          <span class="d-block xs-small fw-bold text-black-50"
+            >ExpertLabo
+          </span>
+          <div class="py-4 details">
+            <h2 class="fw-bolder">{{ product.price }}.00 EGP</h2>
+            <div class="ps-3 xs-small">
+              <span class="rating">
+                <i class="fa-regular fa-star"></i>
+                {{ rating }}
+                Rate
+              </span>
+              <span class="rating-count">
+                <i class="fa-regular fa-message"></i>
+                {{ product.like.length + product.unlike.length }}
+                Reviews
+              </span>
+            </div>
+            <div class="btn-group" role="group">
+              <button
+                type="button"
+                class="btn btn-light"
+                (click)="likeProduct(product.id)"
+              >
+                <i
+                  class="fa-regular fa-thumbs-up fs-4"
+                  [ngClass]="{ 'text-main': like === 'like' }"
+                ></i>
+              </button>
+              <button
+                type="button"
+                class="btn btn-light"
+                (click)="UnlikeProduct(product.id)"
+              >
+                <i
+                  class="fa-regular fa-thumbs-down fs-4"
+                  [ngClass]="{ 'text-danger': like === 'unLike' }"
+                ></i>
+              </button>
+            </div>
+          </div>
+          <div class="cart-options" *ngIf="product.stock > 0; else notAvlble">
+            <div class="my-counter">
+              <button (click)="decrease()">
+                <i class="fa fa-minus"></i>
+              </button>
+              <div class="count">
+                <span>{{ productCount }}</span>
+              </div>
+              <button (click)="increase()">
+                <i class="fa fa-plus"></i>
+              </button>
+            </div>
+            <button
+              class="btn add-to-cart xs-small text-white bg-main rounded-pill"
+              (click)="addToCart()"
+            >
+              <i class="fa fa-shopping-cart"></i> Add To Cart
+            </button>
+            <button
+              class="btn buy-now xs-small text-white bg-black rounded-pill"
+            >
+              <i class="fa fa-shopping-cart"></i> Buy NOW
+            </button>
+          </div>
+          <div class="p-3 border rounded-4 d-flex">
+            <i class="fa fa-shopping-bag"></i>
+            <div class="ps-3">
+              <p class="xs-small fw-bold mb-1">Return Delivery</p>
+              <p class="xs-small text-black-50 m-0">
+                Free 30 days Delivery Return. Details
+              </p>
+            </div>
+          </div>
+          <div>
+            <h4 class="fw-bolder mt-3">More about this product</h4>
+            <p class="lead fs-6 ps-2">{{ product.description }}...</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<ng-template #notAvlble>
+  <div class="not-avlble py-2">
+    <h4 class="text-muted">This Product Is not Available Right Now</h4>
+  </div>
+</ng-template>

@@ -1,0 +1,432 @@
+<section class="container-fluid my-section">
+  <form (ngSubmit)="sendProduct()" [formGroup]="sellProductForm">
+    <div class="row justify-content-between main-row">
+      <div class="col-md-6 col-xl-4 my-5">
+        <h1 class="h4 fw-bold border-bottom pb-2 mb-3">
+          Sell with <span class="text-main">SUPPLERA</span>
+        </h1>
+        <div class="mb-4">
+          <label for="productName" class="h6 mb-2">Product name</label>
+          <input
+            id="productName"
+            type="text"
+            class="form-control py-2"
+            placeholder="Ex. Beaker"
+            formControlName="name"
+            #productName
+          />
+          <div style="position: relative">
+            <!-- <span
+              class="err-msg"
+              [ngClass]="{
+                active:
+                  sellProductForm.get('productName')?.errors &&
+                  (sellProductForm.get('productName')?.touched ||
+                    productName.value.length > 0)
+              }"
+              >Feild is required</span
+            > -->
+          </div>
+        </div>
+        <div class="mb-4">
+          <label for="productBrand" class="h6 mb-2">Product brand</label>
+          <input
+            id="productBrand"
+            type="text"
+            class="form-control py-2"
+            placeholder="Ex. Beaker"
+            #productBrand
+            formControlName="brand"
+          />
+          <div style="position: relative">
+            <!-- <span
+              class="err-msg"
+              [ngClass]="{
+                active:
+                  sellProductForm.get('productBrand')?.errors &&
+                  (sellProductForm.get('productBrand')?.touched ||
+                    productBrand.value.length > 0)
+              }"
+              >Feild is required</span
+            > -->
+          </div>
+        </div>
+        <div class="mb-4">
+          <label for="description" class="h6 mb-2">Description</label>
+          <textarea
+            id="description"
+            type="text"
+            class="form-control py-2"
+            placeholder="Ex. Beaker"
+            rows="5"
+            formControlName="description"
+            #productDescription
+          ></textarea>
+          <div style="position: relative">
+            <!-- <span
+              class="err-msg"
+              [ngClass]="{
+                active:
+                  sellProductForm.get('description')?.errors &&
+                  (sellProductForm.get('description')?.touched ||
+                    productDescription.value.length > 0)
+              }"
+              >Feild is required</span
+            > -->
+          </div>
+        </div>
+        <div class="mb-4">
+          <label for="Descreption" class="h6 mb-2">Category</label>
+
+          <select class="form-select" formControlName="category">
+            <option value="medicine">medicine</option>
+            <option value="engineering">engineering</option>
+            <option value="agriculture">agriculture</option>
+            <option value="science">science</option>
+            <option value="economics and political science">
+              economics and political science
+            </option>
+            <option value="college of arts">college of arts</option>
+            <option value="faculty of computers & information technology">
+              faculty of computers & information technology
+            </option>
+          </select>
+          <div style="position: relative">
+            <!-- <span
+              class="err-msg"
+              [ngClass]="{
+                active:
+                  sellProductForm.get('productDescreption')?.errors &&
+                  (sellProductForm.get('productDescreption')?.touched ||
+                    productDescreption.value.length > 0)
+              }"
+              >Feild is required</span
+            > -->
+          </div>
+        </div>
+        <!-- set price  -->
+        <div>
+          <p>set your price</p>
+          <div class="d-flex align-items-center justify-content-between">
+            <div class="price-input-parent">
+              <input
+                type="number"
+                id="priceInput"
+                formControlName="price"
+                #productPrice
+              />
+              <span>EGP</span>
+              <div style="position: relative">
+                <!-- <span
+                  class="err-msg"
+                  [ngClass]="{
+                    active:
+                      sellProductForm.get('productPrice')?.errors &&
+                      (sellProductForm.get('productPrice')?.touched ||
+                        productPrice.value.length > 0)
+                  }"
+                  >required</span
+                > -->
+              </div>
+            </div>
+
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                id="negotiable"
+                formControlName="negotiable"
+              />
+              <label class="form-check-label" for="negotiable">
+                Negotiable
+              </label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                id="exchange"
+                formControlName="exchange"
+              />
+              <label class="form-check-label" for="exchange"> Exchange </label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-5 col-xl-4 my-5">
+        <p class="h6">Upload Product photos</p>
+        <label for="fileInput" class="upload-label curser-pointer">
+          <div class="row g-3">
+            <div class="col-4">
+              <div
+                *ngIf="uploadedImages[0]; else dummyIcon"
+                class="uploaded-image-wrapper"
+              >
+                <img
+                  [src]="uploadedImages[0].url"
+                  alt="Uploaded Image"
+                  class="uploaded-image"
+                />
+              </div>
+            </div>
+            <div class="col-4">
+              <div
+                *ngIf="uploadedImages[1]; else dummyIcon"
+                class="uploaded-image-wrapper"
+              >
+                <img
+                  [src]="uploadedImages[1].url"
+                  alt="Uploaded Image"
+                  class="uploaded-image"
+                />
+              </div>
+            </div>
+            <div class="col-4">
+              <div
+                *ngIf="uploadedImages[2]; else dummyIcon"
+                class="uploaded-image-wrapper"
+              >
+                <img
+                  [src]="uploadedImages[2].url"
+                  alt="Uploaded Image"
+                  class="uploaded-image"
+                />
+              </div>
+            </div>
+            <div class="col-4">
+              <div
+                *ngIf="uploadedImages[3]; else dummyIcon"
+                class="uploaded-image-wrapper"
+              >
+                <img
+                  [src]="uploadedImages[3].url"
+                  alt="Uploaded Image"
+                  class="uploaded-image"
+                />
+              </div>
+            </div>
+            <div class="col-4">
+              <div
+                *ngIf="uploadedImages[4]; else dummyIcon"
+                class="uploaded-image-wrapper"
+              >
+                <img
+                  [src]="uploadedImages[4].url"
+                  alt="Uploaded Image"
+                  class="uploaded-image"
+                />
+              </div>
+            </div>
+            <div class="col-4">
+              <div
+                *ngIf="uploadedImages[5]; else dummyIcon"
+                class="uploaded-image-wrapper"
+              >
+                <img
+                  [src]="uploadedImages[5].url"
+                  alt="Uploaded Image"
+                  class="uploaded-image"
+                />
+              </div>
+            </div>
+            <div class="col-4">
+              <div
+                *ngIf="uploadedImages[6]; else dummyIcon"
+                class="uploaded-image-wrapper"
+              >
+                <img
+                  [src]="uploadedImages[6].url"
+                  alt="Uploaded Image"
+                  class="uploaded-image"
+                />
+              </div>
+            </div>
+            <div class="col-4">
+              <div
+                *ngIf="uploadedImages[7]; else dummyIcon"
+                class="uploaded-image-wrapper"
+              >
+                <img
+                  [src]="uploadedImages[7].url"
+                  alt="Uploaded Image"
+                  class="uploaded-image"
+                />
+              </div>
+            </div>
+            <div class="col-4">
+              <div
+                *ngIf="uploadedImages[8]; else dummyIcon"
+                class="uploaded-image-wrapper"
+              >
+                <img
+                  [src]="uploadedImages[8].url"
+                  alt="Uploaded Image"
+                  class="uploaded-image"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="layer">
+            <h3>upload images</h3>
+          </div>
+        </label>
+        <input
+          type="file"
+          id="fileInput"
+          (change)="onFileChange($event)"
+          multiple
+          accept="image/*"
+        />
+        <div class="submit-edit">
+          <button class="btn text-white bg-main mt-4 send" type="submit">
+            Send Product to review
+          </button>
+          <a class="btn btn-danger mt-4 edit" (click)="editTap = true">
+            Edit
+          </a>
+          <a class="btn btn-outline-dark mt-4 src" (click)="srcTap = true">
+            src's
+          </a>
+        </div>
+      </div>
+
+      <div class="col-md-3 paner-parent d-none d-xl-flex">
+        <div class="paner shadow text-white">
+          <h1 class="h3 fw-bold">Supplera. Offering the best selling price</h1>
+          <div class="shakosh">
+            <img
+              class="w-100"
+              src="./assets/images/BACKGROUNDS/shakosh.png"
+              alt=""
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</section>
+
+<div *ngIf="editTap" class="edit-tap">
+  <div class="container">
+    <div class="my-card">
+      <div class="close-tap">
+        <i class="fa-solid fa-xmark fs-1" (click)="editTap = false"></i>
+      </div>
+      <div *ngIf="uploadedImages.length > 0; else emptyEdit">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="mb-4">
+              <h1 class="h6">
+                click an image to remove or
+                <span
+                  class="text-danger fw-bold curser-pointer text-decoration-underline"
+                  (click)="emptyImgs()"
+                >
+                  clear all
+                </span>
+              </h1>
+            </div>
+          </div>
+        </div>
+        <div class="row g-3">
+          <div class="col-md-3" *ngFor="let img of uploadedImages">
+            <div class="edit-img-wrapper position-relative">
+              <div class="layer">
+                <i class="fa-regular fa-trash-can fs-1"></i>
+              </div>
+              <img
+                [src]="img.url"
+                alt="product image"
+                class="w-100 curser-pointer"
+                (click)="removeImage(img.url)"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div *ngIf="srcTap" class="edit-tap">
+  <form class="my-card w-75 mx-auto">
+    <div class="close-tap">
+      <i class="fa-solid fa-xmark fs-1" (click)="srcTap = false"></i>
+    </div>
+    <h3 class="mb-3">Add images url instead of local images</h3>
+    <div class="mb-2">
+      <label for="src1">image source 1</label>
+      <input
+        name="image"
+        [(ngModel)]="srcArr[0]"
+        [placeholder]="srcArr[0]"
+        type="text"
+        class="form-control"
+        id="src1"
+      />
+    </div>
+    <div class="mb-2">
+      <label for="src2">image source 2</label>
+      <input
+        name="image"
+        [(ngModel)]="srcArr[1]"
+        [placeholder]="srcArr[1]"
+        type="text"
+        class="form-control"
+        id="src2"
+      />
+    </div>
+    <div class="mb-2">
+      <label for="src3">image source 3</label>
+      <input
+        name="image"
+        [(ngModel)]="srcArr[2]"
+        [placeholder]="srcArr[2]"
+        type="text"
+        class="form-control"
+        id="src3"
+      />
+    </div>
+    <div class="mb-2">
+      <label for="src4">image source 4</label>
+      <input
+        name="image"
+        [(ngModel)]="srcArr[3]"
+        [placeholder]="srcArr[3]"
+        type="text"
+        class="form-control"
+        id="src4"
+      />
+    </div>
+    <div class="mb-2">
+      <label for="src5">image source 5</label>
+      <input
+        name="image"
+        [(ngModel)]="srcArr[4]"
+        [placeholder]="srcArr[4]"
+        type="text"
+        class="form-control"
+        id="src5"
+      />
+    </div>
+    <div class="mb-2">
+      <label for="src6">image source 6</label>
+      <input
+        name="image"
+        [(ngModel)]="srcArr[5]"
+        [value]="srcArr[5]"
+        type="text"
+        class="form-control"
+        id="src6"
+      />
+    </div>
+  </form>
+</div>
+<ng-template #emptyEdit>
+  <h1 class="text-center">there is nothing to remove</h1>
+</ng-template>
+<ng-template #dummyIcon>
+  <div class="dummy-icon-wrapper">
+    <i class="fa-solid fa-camera dummy-icon"></i>
+  </div>
+</ng-template>

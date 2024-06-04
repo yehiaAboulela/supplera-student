@@ -1,0 +1,79 @@
+<nav class="navbar navbar-expand-lg navbar-white bg-white sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" routerLink="products">
+      <img src="./assets/images/logo.png" alt="SUPPLERA" class="logo" />
+    </a>
+    <button
+      class="navbar-toggler d-lg-none"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#collapsibleNavId"
+      aria-controls="collapsibleNavId"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="collapsibleNavId">
+      <ul class="navbar-nav me-auto ms-lg-4 mt-2 mt-lg-0 text-center">
+        <li class="nav-item">
+          <a
+            class="nav-link curser-pointer my-1 my-lg-0"
+            routerLink="products"
+            routerLinkActive="active-nav"
+            >Products</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link curser-pointe my-1 my-lg-0"
+            routerLink="sellproducts"
+            routerLinkActive="active-nav"
+            >Sell Products</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link curser-pointer my-1 my-lg-0"
+            routerLink="orders"
+            routerLinkActive="active-nav"
+            >Orders</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link curser-pointer my-1 my-lg-0"
+            routerLink="profile"
+            routerLinkActive="active-nav"
+            >Edit Profile</a
+          >
+        </li>
+      </ul>
+      <form class="d-flex my-2 my-lg-0 ms-auto" (ngSubmit)="goToSearch()">
+        <button class="btn my-2 my-sm-0 search-btn" type="submit">
+          <i class="fa fa-search"></i>
+        </button>
+        <input
+          class="form-control me-sm-2 border-0 search-bar"
+          type="text"
+          placeholder="Search"
+          name="search"
+          [(ngModel)]="searchTerm"
+        />
+      </form>
+      <ul class="navbar-nav">
+        <li class="nav-item my-1 my-lg-0 mx-lg-2 text-center">
+          <a class="cart-icon-parent curser-pointer" routerLink="cart">
+            <i class="fa-solid fa-cart-shopping fs-4 text-black mt-lg-2"></i>
+            <div class="cart-lable">
+              <span>{{ cartCount }}</span>
+            </div>
+          </a>
+        </li>
+        <li class="nav-item my-1 my-lg-0 text-center">
+          <a class="nav-link curser-pointer" (click)="handleLogout()">logout</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

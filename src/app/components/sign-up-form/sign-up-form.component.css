@@ -1,0 +1,14 @@
+.form-parent {
+  background-color: #eeeeeed2;
+  width: 550px;
+  padding: 2rem;
+}
+.input-parent {
+  position: relative;
+}
+
+@media screen and (max-width: 990px) {
+  .form-parent {
+    width: 100%;
+  }
+}

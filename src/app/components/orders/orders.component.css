@@ -1,0 +1,42 @@
+section {
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.table-parent {
+  overflow-y: auto;
+}
+.table {
+  min-width: 900px;
+}
+td {
+  height: 70px;
+  line-height: 70px;
+}
+.actions {
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+}
+.actions button {
+  width: 50%;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #eee;
+  border: none;
+  font-size: 1rem;
+}
+.actions button:hover {
+  background-color: #a1a1a1;
+}
+.actions .one {
+  border-radius: 50px 0 0 50px;
+  border-right: 1px solid #b3b3b3;
+}
+.actions .two {
+  border-radius: 0 50px 50px 0;
+}

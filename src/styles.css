@@ -1,0 +1,163 @@
+/* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+:root {
+  --main-color-blue: #00a8e8;
+  --color-pink: #007ea7;
+  --color-dark: #003459;
+  --color-darker: #00171f;
+}
+body {
+  font-family: "Poppins", sans-serif;
+}
+input,
+textarea,
+select {
+  border: 2px solid #dddddd !important;
+}
+input:focus,
+textarea:focus,
+select:focus {
+  box-shadow: none !important;
+  outline: none;
+  border-color: var(--main-color-blue) !important;
+}
+.curser-pointer {
+  cursor: pointer;
+}
+.xs-small {
+  font-size: 0.8rem;
+}
+a {
+  text-decoration: none;
+}
+.bg-main {
+  background-color: var(--main-color-blue);
+}
+.bg-main:hover {
+  background-color: #0095cf;
+}
+.bg-darker {
+  background-color: var(--color-darker);
+}
+.text-main {
+  color: var(--main-color-blue);
+}
+.input-main {
+  font-size: 0.7rem;
+  padding-block: 14px;
+  border: 1px solid var(--main-color-blue);
+}
+.err-msg {
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: #ff9334;
+  position: absolute;
+  bottom: -20px;
+  right: 5px;
+  transform: translateY(20px);
+  opacity: 0;
+  transition: transform 0.3s, opacity 0.3s;
+}
+.err-msg.active {
+  display: inline;
+  transform: translateY(3px);
+  opacity: 0.8;
+}
+/* .product-card{
+
+}
+.img-parent{
+
+}
+
+.in-stock{
+
+}
+.out-stock{
+
+}
+.product-details{
+
+}
+.price{
+
+} */
+.img-parent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 400px;
+  overflow: hidden;
+  padding: 20px;
+  transition: box-shadow 0.2s;
+}
+.img-parent:hover {
+  box-shadow: 0 0 10px 2px #00a6e847;
+}
+.img-parent img {
+  max-height: 350px;
+  width: 90%;
+  transform: scale(1.01);
+  transition: transform 0.2s;
+}
+.img-parent:hover img {
+  transform: scale(1.05);
+}
+.img-parent .in-stock,
+.img-parent .out-stock {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin: 10px;
+}
+.in-stock {
+  color: rgb(182, 182, 95);
+}
+.out-stock {
+  color: rgb(26, 26, 20);
+}
+.product-details {
+  height: 130px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.price {
+  display: inline-block;
+  padding: 5px 20px;
+  background-color: var(--color-dark);
+  color: white;
+  border-radius: 10px;
+}
+@media (max-width: 576px) {
+  .img-parent {
+    height: 250px;
+  }
+  .img-parent img {
+    max-height: 200px;
+  }
+  .price {
+    width: 100%;
+    text-align: center;
+  }
+}
+@media (max-width: 376px) {
+  .img-parent {
+    height: 200px;
+  }
+  .img-parent img {
+    max-height: 180px;
+  }
+}
+
+.empty-msg {
+  width: 100%;
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+input[type="checkbox"] {
+  transform: scale(1.2); /* Increase the size */
+}

@@ -1,0 +1,249 @@
+.main-row {
+  overflow: hidden;
+  align-items: center;
+}
+input[type="file"] {
+  display: none;
+}
+.upload-label {
+  position: relative;
+  width: 100%;
+}
+.upload-label .layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.637);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  pointer-events: none;
+  transition: 0.3s;
+  opacity: 0;
+}
+.upload-label:hover .layer {
+  opacity: 1;
+}
+.uploaded-image-wrapper {
+  height: 120px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.uploaded-image {
+  width: 100%;
+}
+.dummy-icon-wrapper {
+  width: 100%;
+  height: 140px;
+  background-color: #eee;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+}
+.dummy-icon {
+  font-size: 2rem;
+}
+.submit-edit {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.submit-edit .send {
+  width: 50%;
+}
+.submit-edit .edit,
+.submit-edit .src {
+  width: 23%;
+}
+
+.price-input-parent {
+  border-radius: 15px 15px 0 0;
+  border: 1px solid #b9b9b9;
+  border-radius: 10px;
+  overflow: hidden;
+  width: 30%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.price-input-parent span {
+  padding-inline: 10px;
+}
+#priceInput {
+  border: none;
+  padding: 10px;
+  border-right: 1px solid #eee;
+  width: 100%;
+}
+#priceInput:focus {
+  outline: none;
+}
+.form-check {
+  width: 30%;
+}
+.paner-parent {
+  height: 100vh;
+  min-height: 800px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+.paner {
+  background-color: #ff9334;
+  height: 90%;
+  width: 80%;
+  padding: 20px;
+  border-radius: 20px 20px 0 0;
+  position: relative;
+}
+
+.shakosh {
+  width: 200%;
+  position: absolute;
+  left: -100px;
+  top: 50px;
+  filter: drop-shadow(0 0 3px rgb(73, 73, 73));
+}
+.edit-tap {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.592);
+  z-index: 99;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.edit-tap .my-card {
+  background-color: #eee;
+  box-shadow: 5px 3px 10px rgba(0, 0, 0, 0.767);
+  padding: 20px;
+  border-radius: 20px;
+  position: relative;
+  height: 80vh;
+  overflow: auto;
+}
+.close-tap {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 10px 15px;
+  cursor: pointer;
+}
+.edit-img-wrapper {
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.53);
+  border-radius: 10px;
+}
+.edit-img-wrapper .layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #eeeeeebe;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.edit-img-wrapper:hover .layer {
+  opacity: 1;
+}
+.container-fluid {
+  max-width: 1800px;
+}
+/* responsive */
+@media (max-width: 576px) {
+  .uploaded-image-wrapper {
+    height: 90px;
+  }
+  .dummy-icon-wrapper {
+    height: 90px;
+  }
+}
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  .main-container {
+    padding: 70px !important;
+  }
+  .uploaded-image-wrapper {
+    height: 110px;
+  }
+  .dummy-icon-wrapper {
+    height: 110px;
+  }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  .uploaded-image-wrapper {
+    height: 90px;
+  }
+  .dummy-icon-wrapper {
+    height: 90px;
+  }
+}
+
+/* X-Large devices (large desktops, 1200px and up) */
+@media (max-width: 1200px) {
+  .my-section {
+    height: auto;
+  }
+}
+
+/* XX-Large devices (larger desktops, 1400px and up) */
+@media (min-width: 1400px) {
+  .uploaded-image-wrapper {
+    height: 100px;
+  }
+  .dummy-icon-wrapper {
+    height: 100px;
+  }
+}
+@media (min-width: 1700px) {
+  .my-section {
+    height: 800px;
+  }
+
+  .paner-parent {
+    height: 800px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+  }
+  .paner {
+    background-color: #ff9334;
+    height: 90%;
+    width: 80%;
+    padding: 20px;
+    border-radius: 20px 20px 0 0;
+    position: relative;
+  }
+
+  .shakosh {
+    width: 200%;
+    position: absolute;
+    left: -100px;
+    top: 50px;
+    filter: drop-shadow(0 0 3px rgb(73, 73, 73));
+  }
+}

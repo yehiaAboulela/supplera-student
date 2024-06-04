@@ -1,0 +1,80 @@
+<section class="my-5" *ngIf="products.length > 0; else empty">
+  <div class="container mb-5">
+    <div
+      class="product-condition d-flex align-items-center justify-content-between"
+    >
+      <span>Product Condition</span>
+      <div class="btn-group" role="group" aria-label="Basic example">
+        <a
+          type="button"
+          class="btn btn-outline-dark"
+          [ngClass]="{ active: state == 'used' }"
+          (click)="handleFilter('used')"
+          >Used</a
+        >
+        <a
+          type="button"
+          class="btn btn-outline-dark"
+          [ngClass]="{ active: state == 'new' }"
+          (click)="handleFilter('new')"
+          >New</a
+        >
+        <a
+          type="button"
+          class="btn btn-outline-dark"
+          [ngClass]="{ active: state == 'all' }"
+          (click)="handleFilter('all')"
+          >All</a
+        >
+      </div>
+    </div>
+    <hr />
+
+    <div class="row g-3 row-gap-4">
+      <div
+        class="col-6 col-md-4 col-xl-3"
+        *ngFor="let product of products | newOrUsed : state"
+      >
+        <div class="product-card">
+          <div
+            class="position-relative img-parent img-thumbnail rounded-4 curser-pointer"
+            [routerLink]="['/details', product._id]"
+          >
+            <img [src]="product.src[0]" [alt]="product.name" />
+            <span class="in-stock xs-small" *ngIf="product.stock > 0">
+              <i class="fa fa-dot-circle"></i> In Stock
+            </span>
+            <span class="out-stock xs-small" *ngIf="product.stock === 0">
+              <i class="fa fa-dot-circle"></i> Out Of Stock
+            </span>
+          </div>
+          <div class="product-details mt-2 p-2">
+            <div>
+              <h4 class="fs-6 text-muted">{{ product.category }}</h4>
+              <h2 class="fs-5 fw-bolder">
+                {{ product.name.split(" ").slice(0, 3).join(" ") }}
+              </h2>
+            </div>
+            <div>
+              <span class="price">{{ product.price }}EGP</span>
+              <span class="xs-small ps-2 fw-bold text-warning">
+                <i class="fa fa-star"></i>
+                {{
+                  { likes: product.like, unlikes: product.unlike } | calcRating
+                }}
+              </span>
+              <span class="xs-small text-muted ps-1 fw-bold">
+                ({{ product.like.length + product.unlike.length }})
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<ng-template #empty>
+  <div class="empty-msg">
+    <h1>Sorry We dont have such product</h1>
+  </div>
+</ng-template>

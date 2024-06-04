@@ -1,0 +1,44 @@
+.row {
+  height: 100vh;
+  align-items: center;
+}
+input.w50 {
+  width: 48%;
+}
+
+select {
+  width: 20%;
+  height: 59.56px;
+  border-radius: 5px;
+  padding-left: 5px;
+}
+.paner-parent {
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+.paner {
+  width: 70%;
+  height: 90%;
+  max-height: 800px;
+  background-image: linear-gradient(to bottom, #3facaf, #49d3d8);
+  border-radius: 50px 50px 0 0;
+  position: relative;
+}
+.paner img {
+  width: 130%;
+  position: absolute;
+  left: -60px;
+  bottom: 0;
+}
+@media (max-width: 1200px) {
+  .paner-parent {
+    display: none;
+  }
+}
+@media (min-width: 1800px) {
+  .row {
+    height: 900px;
+  }
+}

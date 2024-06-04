@@ -1,0 +1,54 @@
+<div class="form-parent rounded-5 shadow my-3">
+  <div>
+    <div class="d-flex justify-content-between">
+      <h2 class="h5">
+        Welcome to <span class="text-main fw-bold">SUPPLERA</span>
+      </h2>
+      <div>
+        <p class="mb-0">No Account?</p>
+        <a class="xs-small text-main curser-pointer" routerLink="/signup"
+          >Sign Up</a
+        >
+      </div>
+    </div>
+    <h1 class="mb-3">Sign In</h1>
+    <hr />
+  </div>
+  <form [formGroup]="loginForm" (ngSubmit)="handleForm()">
+    <div class="mb-3">
+      <label for="email" class="h6">Enter your email address</label>
+      <input
+        id="email"
+        type="email"
+        class="form-control input-main"
+        placeholder="Email address"
+        formControlName="email"
+      />
+    </div>
+
+    <div class="mb-3">
+      <label for="password" class="h6">Enter your password</label>
+      <input
+        id="password"
+        type="password"
+        class="form-control input-main"
+        placeholder="password"
+        formControlName="password"
+      />
+    </div>
+
+    <div class="d-flex align-items-center justify-content-between">
+      <div>
+        <a
+          routerLink="/forgotpassword"
+          class="d-block xs-small curser-pointer text-danger text-decoration-underline"
+          >forgot password?</a
+        >
+        <span class="h6 text-black-50" *ngIf="error"
+          >Invalid Email Or Password</span
+        >
+      </div>
+      <button class="btn xs-small px-5 py-2 bg-main text-white">Sign In</button>
+    </div>
+  </form>
+</div>

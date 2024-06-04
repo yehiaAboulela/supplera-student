@@ -1,0 +1,188 @@
+<div class="form-parent rounded-5 shadow my-3">
+  <div>
+    <div class="d-flex justify-content-between">
+      <h2 class="h5">
+        Welcome to <span class="text-main fw-bold">SUPPLERA</span>
+      </h2>
+      <div>
+        <p class="mb-0">Have an Account?</p>
+        <a routerLink="login" class="xs-small text-main" routerLink="/signin"
+          >Sign in</a
+        >
+      </div>
+    </div>
+    <h1 class="mb-3">Sign Up</h1>
+    <hr />
+  </div>
+  <form [formGroup]="registerForm" (ngSubmit)="handleForm()">
+    <div class="mb-3 position-relative">
+      <label for="email" class="h6">Enter your email address</label>
+      <input
+        id="email"
+        type="email"
+        class="form-control input-main"
+        placeholder="Email address"
+        formControlName="email"
+        #emailinput
+      />
+      <div
+        class="err-msg"
+        [ngClass]="{
+          active:
+            registerForm.get('email')?.errors &&
+            (registerForm.get('email')?.touched || emailinput.value.length > 0)
+        }"
+      >
+        <span>email is not valid</span>
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <label for="firstName" class="h6">User name</label>
+      <div class="col-6">
+        <div class="position-relative">
+          <input
+            id="firstName"
+            type="text"
+            class="form-control input-main"
+            placeholder="first name"
+            formControlName="firstName"
+            #firstName
+          />
+          <div
+            class="err-msg"
+            [ngClass]="{
+              active:
+                registerForm.get('firstName')?.errors &&
+                (registerForm.get('firstName')?.touched ||
+                  firstName.value.length > 0)
+            }"
+          >
+            <span>riqured</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-6">
+        <div class="position-relative">
+          <input
+            id="lastName"
+            type="text"
+            class="form-control input-main"
+            placeholder="last name"
+            formControlName="lastName"
+            #lastName
+          />
+          <div
+            class="err-msg"
+            [ngClass]="{
+              active:
+                registerForm.get('lastName')?.errors &&
+                (registerForm.get('lastName')?.touched ||
+                  lastName.value.length > 0)
+            }"
+          >
+            <span>riqured</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- <div class="mb-3">
+      <label for="phone" class="h6">Contact number</label>
+      <input
+        id="phone"
+        type="tel"
+        class="form-control input-main"
+        placeholder="Contact number"
+        formControlName="phone"
+      />
+    </div> -->
+
+    <div class="mb-3 input-parent">
+      <label for="password" class="h6">Enter your password</label>
+      <input
+        id="password"
+        type="password"
+        class="form-control input-main"
+        placeholder="password"
+        formControlName="password"
+        #passwordInput
+      />
+      <div
+        class="err-msg"
+        [ngClass]="{
+          active:
+            registerForm.get('password')?.errors &&
+            (registerForm.get('password')?.touched ||
+              passwordInput.value.length > 0)
+        }"
+      >
+        <span>password should be at least 6 chars</span>
+      </div>
+    </div>
+    <div class="mb-3 position-relative">
+      <label for="confirmPassword" class="h6">Confirm Password</label>
+      <input
+        id="confirmPassword"
+        type="password"
+        class="form-control input-main"
+        placeholder="password"
+        formControlName="confirmPassword"
+        #confirmPassword
+      />
+      <div
+        class="err-msg"
+        [ngClass]="{
+          active:
+            registerForm.get('confirmPassword')?.errors &&
+            (registerForm.get('confirmPassword')?.touched ||
+              confirmPassword.value.length > 0)
+        }"
+      >
+        <span>password dosnt match</span>
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="phoneNumber" class="h6">Phone Number</label>
+      <input
+        id="phoneNumber"
+        type="tel"
+        class="form-control input-main"
+        placeholder="Phone Number"
+        formControlName="phoneNumber"
+      />
+    </div>
+    <!-- <div class="row">
+      <label for="Address" class="h6">Address</label>
+      <div class="col-9">
+        <div>
+          <input
+            id="Address"
+            type="text"
+            class="form-control input-main"
+            placeholder="Address"
+            formControlName="address"
+          />
+        </div>
+      </div>
+      <div class="col-3">
+        <div>
+          <input
+            id="city"
+            type="text"
+            class="form-control input-main"
+            placeholder="city"
+            formControlName="city"
+          />
+        </div>
+      </div>
+    </div> -->
+    <p *ngIf="wrongInput" class="text-muted">wrong input</p>
+    <div class="text-end">
+      <button class="btn xs-small px-5 py-2 mt-2 bg-main">
+        <a class="text-white">sign up</a>
+      </button>
+    </div>
+  </form>
+</div>

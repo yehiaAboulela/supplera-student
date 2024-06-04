@@ -1,0 +1,17 @@
+section {
+  background-image: url("../../../assets/images/BACKGROUNDS/Practical-science.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+section .container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+@media screen and (max-width: 990px) {
+  section .container {
+    justify-content: center;
+  }
+}

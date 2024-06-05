@@ -50,7 +50,9 @@
           </div>
           <div class="product-details mt-2 p-2">
             <div>
-              <h4 class="fs-6 text-muted">{{ product.category }}</h4>
+              <h4 class="fs-6 text-muted">
+                {{ product.category.split(" ").slice(0, 3).join(" ") }}..
+              </h4>
               <h2 class="fs-5 fw-bolder">
                 {{ product.name.split(" ").slice(0, 3).join(" ") }}
               </h2>

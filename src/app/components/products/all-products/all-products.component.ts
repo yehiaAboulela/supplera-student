@@ -26,6 +26,9 @@ export class AllProductsComponent implements OnInit {
           },
         });
       },
+      error: (err) => {
+        console.log(err);
+      },
     });
   }
 

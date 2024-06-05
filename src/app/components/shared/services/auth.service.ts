@@ -12,18 +12,31 @@ export class AuthService {
   ) {}
   headers = this._GetTokenService.token;
   registerForm(body: any): Observable<any> {
-    return this._HttpClient.post(`http://localhost:5000/auth/signup`, body);
+    return this._HttpClient.post(
+      `https://supplera-backend-o6om.onrender.com/auth/signup`,
+      body
+    );
   }
 
   login(body: any): Observable<any> {
-    return this._HttpClient.post('http://localhost:5000/auth/login', body);
+    return this._HttpClient.post(
+      'https://supplera-backend-o6om.onrender.com/auth/login',
+      body
+    );
   }
   logout(): Observable<any> {
-    return this._HttpClient.post(`http://localhost:5000/auth/logout`, 'yehia', {
-      headers: this.headers,
-    });
+    return this._HttpClient.post(
+      `https://supplera-backend-o6om.onrender.com/auth/logout`,
+      'yehia',
+      {
+        headers: this.headers,
+      }
+    );
   }
   sendOtp(email: object): Observable<any> {
-    return this._HttpClient.post(`http://localhost:5000/otp`, email);
+    return this._HttpClient.post(
+      `https://supplera-backend-o6om.onrender.com/otp`,
+      email
+    );
   }
 }

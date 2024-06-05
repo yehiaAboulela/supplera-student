@@ -16,24 +16,27 @@ export class ProductsService {
 
   getProducts(): Observable<any> {
     return this._HttpClient.get(
-      `https://supplera-backend.onrender.com/product`
+      `https://supplera-backend-o6om.onrender.com/product`
     );
   }
   getSpecificProduct(id: string): Observable<any> {
-    return this._HttpClient.get(`http://localhost:5000/product/${id}`, {
-      headers: this.token,
-    });
+    return this._HttpClient.get(
+      `https://supplera-backend-o6om.onrender.com/product/${id}`,
+      {
+        headers: this.token,
+      }
+    );
   }
   unLike(id: string): Observable<any> {
     return this._HttpClient.patch(
-      `http://localhost:5000/product/unLike/${id}`,
+      `https://supplera-backend-o6om.onrender.com/product/unLike/${id}`,
       'yehia',
       { headers: this.token }
     );
   }
   like(id: string): Observable<any> {
     return this._HttpClient.patch(
-      `http://localhost:5000/product/like/${id}`,
+      `https://supplera-backend-o6om.onrender.com/product/like/${id}`,
       'yehia',
       { headers: this.token }
     );
@@ -49,8 +52,12 @@ export class ProductsService {
   }
 
   addProduct(details: any): Observable<any> {
-    return this._HttpClient.post(`http://localhost:5000/product/add`, details, {
-      headers: this.token,
-    });
+    return this._HttpClient.post(
+      `https://supplera-backend-o6om.onrender.com/product/add`,
+      details,
+      {
+        headers: this.token,
+      }
+    );
   }
 }

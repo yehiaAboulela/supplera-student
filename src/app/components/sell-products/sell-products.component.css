@@ -191,6 +191,14 @@ input[type="file"] {
   .dummy-icon-wrapper {
     height: 110px;
   }
+  .submit-edit .send {
+    font-size: 0.5rem !important;
+  }
+}
+@media (max-width: 768px) {
+  .submit-edit .send {
+    font-size: 0.8rem !important;
+  }
 }
 
 /* Large devices (desktops, 992px and up) */

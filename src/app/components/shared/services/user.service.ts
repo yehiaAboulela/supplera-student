@@ -14,18 +14,24 @@ export class UserService {
   ) {}
   headers = this._GetTokenService.token;
   getUser(id: string): Observable<any> {
-    return this._HttpClient.get(`http://localhost:5000/user/profile`, {
-      headers: this.headers,
-    });
+    return this._HttpClient.get(
+      `https://supplera-backend-o6om.onrender.com/user/profile`,
+      {
+        headers: this.headers,
+      }
+    );
   }
   getAllUsers(): Observable<any> {
-    return this._HttpClient.get(`http://localhost:5000/user`, {
-      headers: this.headers,
-    });
+    return this._HttpClient.get(
+      `https://supplera-backend-o6om.onrender.com/user`,
+      {
+        headers: this.headers,
+      }
+    );
   }
   updateProfile(details: object, id: string): Observable<any> {
     return this._HttpClient.put(
-      `http://localhost:5000/user/profile/update`,
+      `https://supplera-backend-o6om.onrender.com/user/profile/update`,
       details,
       { headers: this.headers }
     );

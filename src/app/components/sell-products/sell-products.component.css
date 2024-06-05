@@ -191,13 +191,10 @@ input[type="file"] {
   .dummy-icon-wrapper {
     height: 110px;
   }
-  .submit-edit .send {
-    font-size: 0.5rem !important;
-  }
 }
-@media (max-width: 768px) {
+@media (max-width: 968px) {
   .submit-edit .send {
-    font-size: 0.8rem !important;
+    font-size: 0.8rem;
   }
 }
 

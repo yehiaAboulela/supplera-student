@@ -25,18 +25,18 @@ export class ProductDetailsComponent implements OnInit {
   ngOnInit(): void {
     this._ActivatedRoute.params.subscribe({
       next: (data) => {
-        this._ProductsService.getSpecificProduct(data['id']).subscribe({
-          next: (response: { message: string; product: Product }) => {
-            console.log(response);
-            this.product = response.product;
-            this.productImages = response.product.src.slice(0, 4);
-            if (response.product.like.length > 0) {
-              const total =
-                response.product.like.length + response.product.unlike.length;
+        console.log(data);
+        this._ProductsService.getProducts().subscribe({
+          next: (response) => {
+            const resProduct = response.products[data['id']];
+            this.product = resProduct;
+            this.productImages = resProduct.src.slice(0, 4);
+            if (resProduct.like.length > 0) {
+              const total = resProduct.like.length + resProduct.unlike.length;
               this.rating = String(
-                ((response.product.like.length / total) * 100) / 20
+                ((resProduct.like.length / total) * 100) / 20
               ).slice(0, 3);
-            } else if (response.product.like.length == 0) {
+            } else if (resProduct.like.length == 0) {
               this.rating = '0';
             }
           },

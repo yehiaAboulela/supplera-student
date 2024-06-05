@@ -8,27 +8,25 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sell-products.component.css'],
 })
 export class SellProductsComponent implements OnInit {
-  uploadedImages: any[] = [];
-  imagesSendToServer: any[] = [];
   constructor(
     private http: HttpClient,
     private _FormBuilder: FormBuilder,
     private _ProductsService: ProductsService
   ) {}
+  uploadedImages: any[] = [];
 
   editTap: boolean = false;
   srcTap: boolean = false;
-  srcArr = ['', '', '', '', '', ''];
 
   ngOnInit(): void {}
   onFileChange(event: any): void {
     // Handle file selection and store in uploadedImages array
     const files = event.target.files;
-    this.imagesSendToServer = files;
+
     for (const file of files) {
       const reader = new FileReader();
       reader.onload = (e: any) => {
-        this.uploadedImages.push({ url: e.target.result });
+        this.uploadedImages.push(e.target.result);
       };
       reader.readAsDataURL(file);
     }
@@ -52,7 +50,7 @@ export class SellProductsComponent implements OnInit {
 
   sendProduct() {
     let reqBody = this.sellProductForm.value;
-    reqBody.src = this.srcArr;
+    reqBody.src = this.uploadedImages;
     console.log(this.sellProductForm.value);
     this._ProductsService.addProduct(reqBody).subscribe({
       next: (res) => {

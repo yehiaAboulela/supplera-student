@@ -163,7 +163,7 @@
                 class="uploaded-image-wrapper"
               >
                 <img
-                  [src]="uploadedImages[0].url"
+                  [src]="uploadedImages[0]"
                   alt="Uploaded Image"
                   class="uploaded-image"
                 />
@@ -175,7 +175,7 @@
                 class="uploaded-image-wrapper"
               >
                 <img
-                  [src]="uploadedImages[1].url"
+                  [src]="uploadedImages[1]"
                   alt="Uploaded Image"
                   class="uploaded-image"
                 />
@@ -187,7 +187,7 @@
                 class="uploaded-image-wrapper"
               >
                 <img
-                  [src]="uploadedImages[2].url"
+                  [src]="uploadedImages[2]"
                   alt="Uploaded Image"
                   class="uploaded-image"
                 />
@@ -199,7 +199,7 @@
                 class="uploaded-image-wrapper"
               >
                 <img
-                  [src]="uploadedImages[3].url"
+                  [src]="uploadedImages[3]"
                   alt="Uploaded Image"
                   class="uploaded-image"
                 />
@@ -211,7 +211,7 @@
                 class="uploaded-image-wrapper"
               >
                 <img
-                  [src]="uploadedImages[4].url"
+                  [src]="uploadedImages[4]"
                   alt="Uploaded Image"
                   class="uploaded-image"
                 />
@@ -223,7 +223,7 @@
                 class="uploaded-image-wrapper"
               >
                 <img
-                  [src]="uploadedImages[5].url"
+                  [src]="uploadedImages[5]"
                   alt="Uploaded Image"
                   class="uploaded-image"
                 />
@@ -235,7 +235,7 @@
                 class="uploaded-image-wrapper"
               >
                 <img
-                  [src]="uploadedImages[6].url"
+                  [src]="uploadedImages[6]"
                   alt="Uploaded Image"
                   class="uploaded-image"
                 />
@@ -247,7 +247,7 @@
                 class="uploaded-image-wrapper"
               >
                 <img
-                  [src]="uploadedImages[7].url"
+                  [src]="uploadedImages[7]"
                   alt="Uploaded Image"
                   class="uploaded-image"
                 />
@@ -259,7 +259,7 @@
                 class="uploaded-image-wrapper"
               >
                 <img
-                  [src]="uploadedImages[8].url"
+                  [src]="uploadedImages[8]"
                   alt="Uploaded Image"
                   class="uploaded-image"
                 />
@@ -336,10 +336,10 @@
                 <i class="fa-regular fa-trash-can fs-1"></i>
               </div>
               <img
-                [src]="img.url"
+                [src]="img"
                 alt="product image"
                 class="w-100 curser-pointer"
-                (click)="removeImage(img.url)"
+                (click)="removeImage(img)"
               />
             </div>
           </div>
@@ -358,8 +358,8 @@
       <label for="src1">image source 1</label>
       <input
         name="image"
-        [(ngModel)]="srcArr[0]"
-        [placeholder]="srcArr[0]"
+        [(ngModel)]="uploadedImages[0]"
+        [placeholder]="uploadedImages[0] || ''"
         type="text"
         class="form-control"
         id="src1"
@@ -369,8 +369,8 @@
       <label for="src2">image source 2</label>
       <input
         name="image"
-        [(ngModel)]="srcArr[1]"
-        [placeholder]="srcArr[1]"
+        [(ngModel)]="uploadedImages[1]"
+        [placeholder]="uploadedImages[1] || ''"
         type="text"
         class="form-control"
         id="src2"
@@ -380,8 +380,8 @@
       <label for="src3">image source 3</label>
       <input
         name="image"
-        [(ngModel)]="srcArr[2]"
-        [placeholder]="srcArr[2]"
+        [(ngModel)]="uploadedImages[2]"
+        [placeholder]="uploadedImages[2] || ''"
         type="text"
         class="form-control"
         id="src3"
@@ -391,8 +391,8 @@
       <label for="src4">image source 4</label>
       <input
         name="image"
-        [(ngModel)]="srcArr[3]"
-        [placeholder]="srcArr[3]"
+        [(ngModel)]="uploadedImages[3]"
+        [placeholder]="uploadedImages[3] || ''"
         type="text"
         class="form-control"
         id="src4"
@@ -402,8 +402,8 @@
       <label for="src5">image source 5</label>
       <input
         name="image"
-        [(ngModel)]="srcArr[4]"
-        [placeholder]="srcArr[4]"
+        [(ngModel)]="uploadedImages[4]"
+        [placeholder]="uploadedImages[4] || ''"
         type="text"
         class="form-control"
         id="src5"
@@ -413,13 +413,17 @@
       <label for="src6">image source 6</label>
       <input
         name="image"
-        [(ngModel)]="srcArr[5]"
-        [value]="srcArr[5]"
+        [(ngModel)]="uploadedImages[5]"
+        [value]="uploadedImages[5]"
         type="text"
         class="form-control"
         id="src6"
       />
     </div>
+
+    <button class="btn bg-main text-white" (click)="srcTap = false">
+      submit
+    </button>
   </form>
 </div>
 <ng-template #emptyEdit>

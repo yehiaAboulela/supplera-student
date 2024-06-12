@@ -9,8 +9,7 @@
   overflow: visible visible hidden visible;
 }
 .intro-text {
-  width: 70%;
-  min-width: 400px;
+  max-width: 70%;
 }
 .intro-text h1 {
   font-size: 3.3rem;
@@ -78,9 +77,6 @@
 @media (max-width: 768px) {
   .my-img {
     display: none;
-  }
-  .intro-layer {
-    text-align: center;
   }
   .intro-text {
     min-width: 100%;

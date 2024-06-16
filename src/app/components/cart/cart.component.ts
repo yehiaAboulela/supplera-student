@@ -3,6 +3,7 @@ import { Product } from './../shared/interfaces/product';
 
 import { CartService } from './../shared/services/cart.service';
 import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-cart',
@@ -12,7 +13,8 @@ import { Component, OnInit } from '@angular/core';
 export class CartComponent {
   constructor(
     private _CartService: CartService,
-    private _OrdersService: OrdersService
+    private _OrdersService: OrdersService,
+    private _Toaster: ToastrService
   ) {}
   /* cart: { products: Product[]; amount: number; subPrice: number } = JSON.parse(
     localStorage.getItem('cart') as string
@@ -42,5 +44,6 @@ export class CartComponent {
     this._OrdersService.changeOrder(this.cart);
     this._CartService.clearCart();
     this.cart = this._CartService.userCart;
+    this._Toaster.success('Check your Orders', 'Successful purchase');
   }
 }

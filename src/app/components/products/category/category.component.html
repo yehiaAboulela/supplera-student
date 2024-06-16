@@ -36,7 +36,7 @@
       <div class="product-card">
         <div
           class="position-relative img-parent img-thumbnail rounded-4 curser-pointer"
-          [routerLink]="['/details', index]"
+          [routerLink]="['/details', product.id]"
         >
           <img [src]="product.src[0]" [alt]="product.name" />
           <span class="in-stock xs-small">

@@ -25,10 +25,9 @@ export class ProductDetailsComponent implements OnInit {
   ngOnInit(): void {
     this._ActivatedRoute.params.subscribe({
       next: (data) => {
-        console.log(data);
-        this._ProductsService.getProducts().subscribe({
+        this._ProductsService.getSpecificProduct(data['id']).subscribe({
           next: (response) => {
-            const resProduct = response.products[data['id']];
+            const resProduct = response.product
             this.product = resProduct;
             this.productImages = resProduct.src.slice(0, 4);
             if (resProduct.like.length > 0) {

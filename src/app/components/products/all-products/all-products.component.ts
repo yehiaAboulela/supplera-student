@@ -12,14 +12,13 @@ export class AllProductsComponent implements OnInit {
   products: Product[] = [];
   state: string = 'all';
   rating = '0';
+  p: number = 1;
   ngOnInit(): void {
     this._ProductsService.getProducts().subscribe({
       next: (response: { message: string; products: Product[] }) => {
-        // this.products = response.products.filter(
-        //   (cur) => cur.status != 'private'
-        // );
-        this.products = response.products;
-        console.log(response);
+        this.products = response.products.filter(
+          (cur) => cur.status != 'private'
+        );
         this._ProductsService.state.subscribe({
           next: (data) => {
             this.state = data;

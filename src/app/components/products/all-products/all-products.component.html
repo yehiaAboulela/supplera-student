@@ -33,7 +33,12 @@
     <div class="row g-3 row-gap-4">
       <div
         class="col-6 col-md-4 col-xl-3"
-        *ngFor="let product of products | newOrUsed : state; index as index"
+        *ngFor="
+          let product of products
+            | newOrUsed : state
+            | paginate : { itemsPerPage: 8, currentPage: p };
+          index as index
+        "
       >
         <div class="product-card">
           <div
@@ -71,6 +76,9 @@
             </div>
           </div>
         </div>
+      </div>
+      <div class="col-12 d-flex align-items-center justify-content-center">
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
       </div>
     </div>
   </div>

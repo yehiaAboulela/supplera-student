@@ -27,6 +27,7 @@ export class CategoryComponent implements OnInit {
 
   products: Product[] = [];
   state = 'all';
+  p = 1;
 
   ngOnInit(): void {
     this._ActivatedRoute.params.subscribe({
@@ -34,7 +35,8 @@ export class CategoryComponent implements OnInit {
         this._ProductsService.getProducts().subscribe({
           next: (response) => {
             this.products = response.products.filter(
-              (cur: Product) => cur.category == params['name']
+              (cur: Product) =>
+                cur.category == params['name'] && cur.status != 'private'
             );
             console.log(this.products);
           },

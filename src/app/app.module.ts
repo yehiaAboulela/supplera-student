@@ -5,6 +5,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
+import { CloudinaryModule } from '@cloudinary/ng';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -32,6 +33,7 @@ import { NewOrUsedPipe } from './components/shared/pipes/new-or-used.pipe';
 import { SearchComponent } from './components/search/search.component';
 import { CalcRatingPipe } from './components/shared/pipes/calc-rating.pipe';
 import { ChooseComponent } from './components/choose/choose.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -70,6 +72,8 @@ import { ChooseComponent } from './components/choose/choose.component';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
+    NgxPaginationModule,
+    CloudinaryModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true },

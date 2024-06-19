@@ -15,13 +15,15 @@ export class SearchComponent {
   ) {}
   products: Product[] = [];
   state: string = 'all';
-
+  p = 1;
   ngOnInit(): void {
     this._ProductsService.getProducts().subscribe({
       next: (response: { message: string; products: Product[] }) => {
         this._ActivatedRoute.params.subscribe((data) => {
-          this.products = response.products.filter((cur) =>
-            cur.name.toLowerCase().includes(data['term'].toLowerCase())
+          this.products = response.products.filter(
+            (cur) =>
+              cur.name.toLowerCase().includes(data['term'].toLowerCase()) &&
+              cur.status != 'private'
           );
         });
       },

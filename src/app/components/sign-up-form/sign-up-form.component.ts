@@ -16,17 +16,18 @@ export class SignUpFormComponent {
   ) {}
   ngOnInit(): void {}
   wrongInput = false;
+  city: string = '';
+  street: string = '';
+  building: string = '';
 
   registerForm: FormGroup = this._FormBuilder.group({
     firstName: [null, [Validators.required]],
     lastName: [null, [Validators.required]],
     email: [null, [Validators.required, Validators.email]],
-    // phone: [null, [Validators.required]],
+    phone: [null, [Validators.required]],
     password: [null, [Validators.required, Validators.minLength(6)]],
     confirmPassword: [null, [Validators.required]],
-    // address: [null, [Validators.required]],
-    // city: [null, [Validators.required]],
-    age: [null, [Validators.required]],
+    address: [null, [Validators.required]],
   });
   confirmPassword(group: FormGroup): void {
     const password = group.get('password');
@@ -40,10 +41,16 @@ export class SignUpFormComponent {
   }
 
   handleForm() {
-    this._AuthService.registerForm(this.registerForm.value).subscribe({
+    let address = `${this.city},${this.street},${this.building}`;
+    let finalBody = this.registerForm.value;
+    finalBody.address = address;
+
+    this._AuthService.registerForm(finalBody).subscribe({
       next: (response) => {
         // console.log(response);
         if (response.message == 'success') {
+          console.log(response);
+
           this._Router.navigate(['/signin']);
         } else {
           this.registerForm.markAllAsTouched();

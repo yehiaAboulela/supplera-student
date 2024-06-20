@@ -87,7 +87,7 @@
         </div>
       </div>
     </div>
-    <!-- <div class="mb-3">
+    <div class="mb-3">
       <label for="phone" class="h6">Contact number</label>
       <input
         id="phone"
@@ -96,7 +96,7 @@
         placeholder="Contact number"
         formControlName="phone"
       />
-    </div> -->
+    </div>
 
     <div class="mb-3 input-parent">
       <label for="password" class="h6">Enter your password</label>
@@ -142,47 +142,41 @@
         <span>password dosnt match</span>
       </div>
     </div>
-
-    <div class="mb-3">
-      <label for="phoneNumber" class="h6">Phone Number</label>
-      <input
-        id="phoneNumber"
-        type="tel"
-        class="form-control input-main"
-        placeholder="Phone Number"
-        formControlName="phoneNumber"
-      />
-    </div>
-    <!-- <div class="row">
-      <label for="Address" class="h6">Address</label>
-      <div class="col-9">
-        <div>
-          <input
-            id="Address"
-            type="text"
-            class="form-control input-main"
-            placeholder="Address"
-            formControlName="address"
-          />
-        </div>
-      </div>
-      <div class="col-3">
-        <div>
-          <input
-            id="city"
-            type="text"
-            class="form-control input-main"
-            placeholder="city"
-            formControlName="city"
-          />
-        </div>
-      </div>
-    </div> -->
-    <p *ngIf="wrongInput" class="text-muted">wrong input</p>
-    <div class="text-end">
-      <button class="btn xs-small px-5 py-2 mt-2 bg-main">
-        <a class="text-white">sign up</a>
-      </button>
-    </div>
   </form>
+  <div class="row">
+    <label for="Address" class="h6">Address</label>
+    <div class="address-wrapper">
+      <div class="mx-1">
+        <input
+          id="Address"
+          type="text"
+          class="form-control input-main"
+          placeholder="City"
+          [(ngModel)]="city"
+        />
+      </div>
+      <div class="mx-1">
+        <input
+          type="text"
+          class="form-control input-main"
+          placeholder="Street address"
+          [(ngModel)]="street"
+        />
+      </div>
+      <div class="mx-1">
+        <input
+          type="text"
+          class="form-control input-main"
+          placeholder="Building number"
+          [(ngModel)]="building"
+        />
+      </div>
+    </div>
+  </div>
+  <p *ngIf="wrongInput" class="text-muted">wrong input</p>
+  <div class="text-end">
+    <button class="btn xs-small px-5 py-2 mt-2 bg-main" (click)="handleForm()">
+      <a class="text-white">sign up</a>
+    </button>
+  </div>
 </div>

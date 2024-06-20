@@ -1,46 +1,30 @@
-<section class="my-5" *ngIf="orders.products.length > 0; else empty">
+<section class="my-5" *ngIf="orders.length > 0; else empty">
   <div class="container">
     <div class="table-parent">
       <table class="table border">
         <thead>
           <tr>
-            <th scope="col">Image</th>
-            <th scope="col">Product Name</th>
-            <th scope="col">Category</th>
-            <th scope="col">Price</th>
-            <th scope="col">Piece</th>
+            <th scope="col">Order ID</th>
+            <th scope="col">Date</th>
+            <th scope="col">Amount</th>
             <th scope="col">Status</th>
             <th scope="col">Action</th>
           </tr>
         </thead>
         <tbody>
-          <tr
-            *ngFor="let product of orders.products.slice(0, 6)"
-            class="xs-small my-row"
-          >
+          <tr *ngFor="let order of orders.slice(0, 6)" class="xs-small my-row">
             <td>
-              <img [src]="product.src[0]" style="height: 70px; width: 40%" />
+              {{ order._id }}
             </td>
             <td>
-              {{ product.name.split(" ").slice(0, 3).join(" ") }}
+              {{ order.createdAt }}
             </td>
-            <td>{{ product.category }}</td>
-            <td>{{ product.price }}EGP</td>
-            <td>{{ product.count }}</td>
+            <td>{{ order.totalAmount }}</td>
+            <td>{{ order.status }}</td>
             <td>
-              <button
-                class="status btn xs-small btn-light border fw-bold text-danger"
-              >
-                In Progress
+              <button class="btn btn-danger" (click)="cancelOrder(order._id)">
+                Cancel
               </button>
-            </td>
-            <td>
-              <div class="actions">
-                <button class="one">
-                  <i class="fa fa-star text-warning"></i>
-                </button>
-                <button class="two"><i class="fa fa-trash"></i></button>
-              </div>
             </td>
           </tr>
         </tbody>

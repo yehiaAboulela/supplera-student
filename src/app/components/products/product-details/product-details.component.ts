@@ -27,7 +27,7 @@ export class ProductDetailsComponent implements OnInit {
       next: (data) => {
         this._ProductsService.getSpecificProduct(data['id']).subscribe({
           next: (response) => {
-            const resProduct = response.product
+            const resProduct = response.product;
             this.product = resProduct;
             this.productImages = resProduct.src.slice(0, 4);
             if (resProduct.like.length > 0) {
@@ -93,7 +93,11 @@ export class ProductDetailsComponent implements OnInit {
 
   addToCart() {
     this.product.count = this.productCount;
-    this._CartService.addToCart(this.product);
+    this._CartService.addToCart(
+      this.product.id,
+      this.productCount,
+      this.product.price
+    );
   }
 }
 /* 

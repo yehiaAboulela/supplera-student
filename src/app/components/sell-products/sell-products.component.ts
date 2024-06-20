@@ -64,7 +64,8 @@ export class SellProductsComponent implements OnInit {
   sendProduct() {
     let reqBody = this.sellProductForm.value;
     reqBody.src = this.uploadedImages;
-    console.log(this.sellProductForm.value);
+    reqBody.userTokent = localStorage.getItem('userToken');
+    console.log(reqBody);
     this._ProductsService.addProduct(reqBody).subscribe({
       next: (res) => {
         console.log(res);

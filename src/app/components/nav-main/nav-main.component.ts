@@ -1,3 +1,4 @@
+import { GetTokenService } from './../shared/services/get-token.service';
 import { CartService } from './../shared/services/cart.service';
 import { Router } from '@angular/router';
 import { AuthService } from './../shared/services/auth.service';
@@ -12,11 +13,14 @@ export class NavMainComponent implements OnInit {
   constructor(
     private _AuthService: AuthService,
     private _Router: Router,
-    private cart: CartService
+    private cart: CartService,
+    private TokenServ: GetTokenService
   ) {}
   searchTerm = '';
+  token: any;
   cartCount = this.cart.userCart.products.length;
   ngOnInit() {
+    this.token = localStorage.getItem('token');
     this.cart.cartCount.subscribe({
       next: (data) => {
         this.cartCount = data;

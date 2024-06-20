@@ -1,16 +1,18 @@
 <section class="container-fluid my-section">
   <div class="row justify-content-between align-items-start main-row">
     <div class="col-md-6 col-xl-4 my-5">
-      <div *ngIf="cart.products.length > 0; else emptyCart">
+      <div *ngIf="products.length > 0; else emptyCart">
         <h1 class="h4">Your Orders</h1>
         <div class="list-group mb-4">
           <a
             class="list-group-item list-group-item-action bg-light"
-            *ngFor="let product of cart.products"
+            *ngFor="let product of products; index as index"
           >
             <div style="width: 70px; position: relative">
               <img [src]="product.src[0]" alt="#" class="w-100" />
-              <span class="product-count">{{ product.count }}</span>
+              <span class="product-count">{{
+                cart.products[index].quantity
+              }}</span>
             </div>
             <div class="details ms-5" style="width: calc(100% - 150px)">
               <h5 class="mb-1 xs-small fw-bold">
@@ -42,7 +44,7 @@
         <div class="cost-parent">
           <div class="cost mb-3">
             <h4 class="h6">Subtotal</h4>
-            <span class="xs-small fw-bold">EGP {{ cart.subPrice }}</span>
+            <span class="xs-small fw-bold">EGP {{ totalPrice }}</span>
           </div>
           <div class="cost mb-3">
             <h4 class="h6">Shipping Cost</h4>

@@ -1,3 +1,4 @@
+import { jwtDecode } from 'jwt-decode';
 import { AuthService } from './../shared/services/auth.service';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -22,9 +23,12 @@ export class SignInFormComponent {
   handleForm() {
     this._AuthService.login(this.loginForm.value).subscribe({
       next: (response) => {
-        console.log(response);
         if (response.message == 'done') {
+          console.log(response);
+          console.log(jwtDecode(response.access_token));
+
           localStorage.setItem('token', response.access_token);
+          localStorage.setItem('userToken', response.access_token);
           this._Router.navigate(['/choose']);
         }
       },

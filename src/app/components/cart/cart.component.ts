@@ -20,6 +20,7 @@ export class CartComponent implements OnInit {
   ) {}
 
   cart: {
+    userToken: string;
     products: { productId: String; quantity: number; price: number }[];
   } = this._CartService.userCart;
   totalPrice = this._CartService.totalPrice;
@@ -42,6 +43,7 @@ export class CartComponent implements OnInit {
             }
           });
         });
+        console.log(this.cart);
       },
     });
   }

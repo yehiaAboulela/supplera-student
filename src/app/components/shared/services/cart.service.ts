@@ -16,8 +16,10 @@ export class CartService {
   // userCart: BehaviorSubject<{ products: Product[]; amount: number }> =
   //   new BehaviorSubject({ products: [] as Product[], amount: 0 });
   userCart: {
+    userToken: string;
     products: { productId: String; quantity: number; price: number }[];
   } = {
+    userToken: localStorage.getItem('token') as string,
     products: [],
   };
   totalPrice: number = 0;
